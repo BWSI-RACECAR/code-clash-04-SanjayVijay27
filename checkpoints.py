@@ -36,12 +36,14 @@ class Solution:
             
             #TODO: Write code below to returnn an int with the solution to the prompt.
             minIndex = 0
-            for i in range(len(checkpoints)):
-                if checkpoints[i] < checkpoints[minIndex]:
-                    temp = checkpoints[i]
-                    checkpoints[i] = checkpoints[minIndex]
-                    checkpoints[minIndex] = temp
-                minIndex += 1
+            for i in range(len(checkpoints)-1):
+                for j in range(len(checkpoints)):
+                    if checkpoints[j] < checkpoints[minIndex]:
+                        minIndex = j
+                temp = checkpoints[i]
+                checkpoints[minIndex] = checkpoints[i]
+                checkpoints[i] = temp
+                minIndex += i
             longest = checkpoints[1] - checkpoints[0]
             for i in range(len(checkpoints)-1):
                 if checkpoints[i+1] - checkpoints[i] > longest:
