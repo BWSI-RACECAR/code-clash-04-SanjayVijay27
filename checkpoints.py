@@ -38,8 +38,8 @@ class Solution:
             
             longest = checkpoints[1] - checkpoints[0]
             for i in range(len(checkpoints)-1):
-                if checkpoints[i] - checkpoints[i+1] > longest:
-                    longest = checkpoints[i] - checkpoints[i+1]
+                if checkpoints[i+1] - checkpoints[i] > longest:
+                    longest = checkpoints[i+1] - checkpoints[i]
 
             return longest
 
