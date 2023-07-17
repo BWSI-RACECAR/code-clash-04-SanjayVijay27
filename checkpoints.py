@@ -36,10 +36,10 @@ class Solution:
             
             #TODO: Write code below to returnn an int with the solution to the prompt.
             
-            longest = checkpoints[1] - checkpoints[0]
+            longest = abs(checkpoints[1] - checkpoints[0])
             for i in range(len(checkpoints)-1):
-                if checkpoints[i+1] - checkpoints[i] > longest:
-                    longest = checkpoints[i+1] - checkpoints[i]
+                if abs(checkpoints[i+1] - checkpoints[i]) > longest:
+                    longest = abs(checkpoints[i+1] - checkpoints[i])
 
             return longest
 
