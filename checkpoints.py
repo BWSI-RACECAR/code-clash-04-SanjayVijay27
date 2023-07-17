@@ -35,11 +35,17 @@ class Solution:
             #return type: int
             
             #TODO: Write code below to returnn an int with the solution to the prompt.
-            
-            longest = abs(checkpoints[1] - checkpoints[0])
+            minIndex = 0
+            for i in range(len(checkpoints)):
+                if checkpoints[i] < checkpoints[minIndex]:
+                    temp = checkpoints[i]
+                    checkpoints[i] = checkpoints[minIndex]
+                    checkpoints[minIndex] = temp
+                minIndex += 1
+            longest = checkpoints[1] - checkpoints[0]
             for i in range(len(checkpoints)-1):
-                if abs(checkpoints[i+1] - checkpoints[i]) > longest:
-                    longest = abs(checkpoints[i+1] - checkpoints[i])
+                if checkpoints[i+1] - checkpoints[i] > longest:
+                    longest = checkpoints[i+1] - checkpoints[i]
 
             return longest
 
